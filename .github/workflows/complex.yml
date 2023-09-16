@@ -2,25 +2,21 @@ name: Complex
 on: push
 jobs:
   ubuntu:
-    name: First Job (Ubuntu)
     runs-on: ubuntu-latest
     steps:
       - name: Print date
         run: date
   windows:
-    name: Second Job (Windows)
     runs-on: windows-latest
     steps:
       - name: Print date
         run: Get-Date
   macOS:
-    name: Third Job (macOS)
     runs-on: macos-latest
     steps:
       - name: Print date
         run: date
-  old_macOS:
-    name: Fourth Job (macOS)
+  macos-11:
     needs: [ubuntu, windows, macOS]
     runs-on: macos-11
     steps:
