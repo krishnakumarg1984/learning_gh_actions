@@ -5,13 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out tomcat-users.xml
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.0.0
       - name: List project files and java version
         run: |
           ls -ltr
           java -version
       - name: Check out Apache Tomcat
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.0.0
         with:
           repository: apache/tomcat # Repository name with owner
           ref: master # The branch, tag or SHA to checkout
