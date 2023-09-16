@@ -1,0 +1,28 @@
+name: first
+on: push
+jobs:
+  job1:
+    name: First Job (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print date
+        run: date
+  job2:
+    name: Second Job (Windows)
+    runs-on: windows-latest
+    steps:
+      - name: Print date
+        run: Get-Date
+  job3:
+    name: Third Job (macOS)
+    runs-on: macos-latest
+    steps:
+      - name: Print date
+        run: date
+  job4:
+    name: Fourth Job (macOS)
+    needs: [job1, job2, job3]
+    runs-on: macos-11
+    steps:
+      - name: Print date
+        run: date
