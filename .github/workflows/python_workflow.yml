@@ -1,0 +1,21 @@
+name: Python workflo
+on: [push]
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the repository
+        uses: actions/checkout@v3
+      - name: Run the script
+        run: python hello.py
+  Build:
+    runs-on: ubuntu-latest
+    needs: [Test]
+    steps:
+      - name: checkout the repository
+        uses: actions/checkout@v3
+      - name: Create an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my_artifact
+          path: ./hello.py
